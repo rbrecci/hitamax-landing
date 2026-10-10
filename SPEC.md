@@ -62,7 +62,7 @@ Os contrastes foram calculados pelo worker de pesquisa; a conferência independe
 
 - Títulos e preços: **Outfit** 600 e 700.
 - Texto: **DM Sans** 400 e 600.
-- Carregamento: Google Fonts com `display=swap` e `preconnect`.
+- Carregamento: arquivos variáveis `latin` hospedados em `assets/fonts/` (licença OFL), com `font-display: swap` e `preload`. Decisão da Fase 2: o CSS do Google Fonts bloqueava a renderização (Lighthouse mobile com desempenho 90 e LCP de 3,0 s); hospedando, subiu para 98 e 2,5 s.
 
 ### Marca na demo
 
@@ -111,7 +111,7 @@ Uma página, rolagem vertical, **mobile first** (a maioria do público do bairro
 
 Comportamentos:
 
-- **Aberto agora**: JavaScript compara a hora no fuso `America/Sao_Paulo` com a tabela de horários, que fica em uma constante única no topo do script, ao lado de `HORARIO_CONFIRMADO` (começa `false`; vira `true` quando o gerente validar, e o complemento "horário a confirmar" some). Sem dependência externa. Se o JavaScript falhar, o texto estático do horário continua visível.
+- **Aberto agora**: JavaScript compara a hora no fuso `America/Sao_Paulo` com a tabela de horários do HTML (`#tabela-horarios`, que é a fonte única do horário), e a constante `HORARIO_CONFIRMADO` fica no topo do script (começa `false`; vira `true` quando o gerente validar, e o complemento "horário a confirmar" some). Sem dependência externa. Se o JavaScript falhar, o texto estático do horário continua visível.
 - **Ligar**: link `tel:+551123255600`. Não existe botão de WhatsApp, porque não há número de WhatsApp confirmado. Ele entra quando o gerente informar.
 - **Como chegar**: link `https://www.google.com/maps/dir/?api=1&destination=` com o endereço codificado. Abre o app no celular.
 - **Mapa**: `<iframe>` do Google Maps por consulta de endereço, sem chave de API, com `loading="lazy"` e `title` descritivo.
@@ -146,7 +146,7 @@ Por quê: a demo vai para GitHub Pages, o gerente precisa abrir rápido, e um bu
 
 | Requisito | Meta |
 |---|---|
-| Lighthouse mobile (Performance, Acessibilidade, Boas práticas, SEO) | todas com 90 ou mais |
+| Lighthouse mobile (Performance, Acessibilidade, Boas práticas, SEO) | todas com 90 ou mais. A demo leva `<meta name="robots" content="noindex, nofollow">` de propósito (não indexar antes do aval do gerente), que derruba o SEO para 63; o teste numa cópia sem o `noindex` deu 100. Remover o `noindex` na Fase 4 |
 | Peso da primeira dobra (HTML, CSS, JS, fontes e hero), transferido no celular | até 600 KB |
 | Peso total com todas as imagens, sem o mapa | até 1,5 MB, medido na aba Network. As cinco imagens atuais somam cerca de 1,9 MB, então T4 gera variantes de 800 px de largura (`srcset`) e comprime o hero |
 | Layout | sem rolagem horizontal de 320 px a 1920 px |
@@ -171,7 +171,7 @@ Regra de onda rolante: só a Fase 1 e a 2 estão em tarefas despacháveis; as se
 - [x] Criar o repositório público `rbrecci/hitamax-landing` e publicar o SPEC (push verificado pela API do GitHub)
 - [x] Revisão independente do SPEC por worker Codex (11 achados, aplicados nesta versão) e conferência independente dos fatos (7 confirmados, 1 divergente de leitura de imagem, 1 não verificável)
 
-### Fase 2: construção da landing (próxima)
+### Fase 2: construção da landing (em andamento)
 
 Ordem: T1 primeiro, porque define o contrato de IDs e atributos do HTML que T2 e T3 consomem. Depois T2, T3 e T4 em paralelo. T5 depois de T1 a T4. T6 por último, sequencial. Cada arquivo tem um dono só.
 
@@ -186,9 +186,11 @@ Contrato do HTML (T1 entrega, T2 e T3 usam): `#status-aberto` (chip de aberto ag
 | T5: revisão independente contra este SPEC, só relatório | Codex | nenhum | lista de desvios com `arquivo:linha`, sem editar |
 | T6: auditoria Lighthouse e acessibilidade, correção dos achados | Claude | todos | metas da seção 6 atingidas, relatório colado |
 
+Status em 10/10/2026: **T1, T2, T3 e T4 entregues e verificados** (evidências na seção 12). Faltam **T5** (revisão independente do código) e o resto de **T6** (teste do mapa incorporado e conferência em celular real).
+
 ### Fase 3: publicação e apresentação (épico)
 
-**Ligar o GitHub Pages só depois de o Saker decidir.** O repositório já é público (necessário para o Pages gratuito) e só contém dado de fonte aberta, mas a página no ar leva o nome comercial da loja: se o Saker preferir ter o aval do gerente antes, a primeira apresentação é local (abrir `index.html` no celular ou servir pela rede da casa) e o Pages liga depois do aval. Validar a URL em celular real, gerar cartão de compartilhamento (Open Graph) e preparar um roteiro de 3 minutos para o Saker mostrar ao gerente, incluindo o que a demo ainda não tem e o que a próxima fase entregaria.
+**Ligar o GitHub Pages só depois de o Saker decidir.** O repositório já é público (necessário para o Pages gratuito) e só contém dado de fonte aberta, mas a página no ar leva o nome comercial da loja: se o Saker preferir ter o aval do gerente antes, a primeira apresentação é local (abrir `index.html` no celular ou servir pela rede da casa) e o Pages liga depois do aval. Validar a URL em celular real, conferir o cartão de compartilhamento (`assets/og-hero.jpg`, já gerado) e preparar um roteiro de 3 minutos para o Saker mostrar ao gerente, incluindo o que a demo ainda não tem e o que a próxima fase entregaria.
 
 ### Fase 4: versão real (épico, depende da aprovação do gerente)
 
@@ -247,3 +249,21 @@ A demo só é declarada pronta quando cada item tiver evidência colada (comando
 7. Existe logo em arquivo? Existem perfis em redes sociais?
 8. Autoriza fotos da loja e usar o nome comercial na página pública?
 9. Quais ofertas ele quer destacar?
+
+## 12. Evidências da Fase 2
+
+Medições de 10/10/2026, servidor local, Lighthouse 12.8.2 com perfil mobile, navegador Edge (não há Chrome nesta máquina):
+
+| Item | Resultado |
+|---|---|
+| Desempenho | 98 (FCP 1,0 s, LCP 2,5 s, CLS 0, TBT 60 ms) |
+| Acessibilidade | 100 |
+| Boas práticas | 100 |
+| SEO | 63 com o `noindex` da demo; 100 numa cópia sem ele (o único audit reprovado era `is-crawlable`) |
+| Peso na primeira carga (mobile) | 441 KiB, meta de 600 KB |
+| Peso máximo com todas as imagens em 1600 px | cerca de 1,25 MB, meta de 1,5 MB. Calculado pela soma dos arquivos (imagens 1.145.062 B + fontes 69 KB + HTML, CSS e JS), não medido na rede |
+| Rolagem horizontal | nenhuma a 320, 360, 390, 768, 1024, 1280 e 1920 px (`scrollWidth` igual a `clientWidth` em todas) |
+| Status de funcionamento | `calcularStatus` com 8 casos de borda, todos PASS (saída do worker); no navegador, em sábado às 13h, mostrou "Aberto agora, fecha às 20:00" e destacou a linha de sábado |
+| Varredura de travessão | exit 1 nos arquivos versionados |
+
+Não verificado: o mapa incorporado do Google (o screenshot headless o pegou ainda carregando; o link "Abrir rota no mapa" não depende dele), a renderização em celular real e a cor real do letreiro.
