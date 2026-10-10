@@ -18,31 +18,31 @@ Legenda de confiança usada em todo o documento: **[confirmado]** tem fonte púb
 | Fato | Valor | Confiança |
 |---|---|---|
 | Nome comercial | Supermercado Hitamax | confirmado (Google Maps) |
-| Razão social | Hitamax Minimercado e Padaria (LTDA nas bases atuais, EIRELI em listas antigas) | a confirmar |
+| Razão social | Hitamax Minimercado e Padaria LTDA nas duas bases cadastrais recentes (Econodata atualizada em out/2026); EIRELI aparece numa lista de credenciados de 2026. LTDA é a referência mais recente, sem certidão da Receita consultada | a confirmar |
 | CNPJ | 10.765.432/0001-47, ativo, aberto em 02/04/2009 | confirmado (CNPJ Biz, Econodata) |
 | Endereço | Rua Balaclava, 1365, Jardim Santo Alberto, Santo André/SP, CEP 09260-440 | confirmado |
 | Atividade | Minimercado (CNAE 47.12-1-00) com padaria de revenda (CNAE 47.21-1-02) | confirmado |
 | Nota | 4,1 de 5 em 560 avaliações no Google Maps, consulta de 10/10/2026 | confirmado, perecível |
 | Temas das avaliações | preços (53 menções), padaria (15), açougue (8), bairro (8) | confirmado |
-| Telefone | (11) 2325-5600 (três fontes concordam) | a confirmar |
-| Horário | seg a sáb 07:00 às 20:00; domingo 07:30 às 14:00 (outra fonte diz domingo 07:00) | a confirmar |
+| Telefone | (11) 2325-5600 (Google Maps, TodosNegócios e lista UpBrasil concordam; prova que o número é publicado, não que atende hoje) | a confirmar |
+| Horário | seg a sáb 07:00 às 20:00; domingo 07:30 às 14:00 (Google Maps e TodosNegócios, sem data da última edição) | a confirmar |
 | Cartões e vales | consta em listas de credenciados da Ticket e da UpBrasil | a confirmar |
 | Entrega | um diretório afirma, sem detalhe | a confirmar |
 | Açougue | citado em avaliações | a confirmar |
 | Hortifruti, frios, WhatsApp, produção própria de pães | nenhuma fonte pública | **não encontrado** |
 | Site, Instagram, Facebook | nenhum encontrado | não encontrado |
-| História e fundação | nenhuma fonte pública (a data de 2009 é de abertura do CNPJ, não da loja) | não encontrado |
+| História e fundação | nenhuma fonte pública (2009 é a abertura do CNPJ, não a data em que a loja começou a atender) | não encontrado |
 
 Decisões que decorrem da tabela:
 
 1. A página **não afirma** hortifruti, frios, produção própria de pães, entrega nem WhatsApp. Onde a demo mostrar um bloco desses, ele aparece com o selo discreto "exemplo para validar" (ver seção 5).
-2. A seção de história **não inventa narrativa**. Na demo ela vira um bloco com os números verdadeiros (aberto desde 2009 no cadastro, nota 4,1 com 560 avaliações) e um texto curto sobre o bairro, com espaço sinalizado para o gerente contar a história real.
+2. A seção de história **não inventa narrativa**. Na demo ela vira um bloco com os números verdadeiros (CNPJ aberto em 2009, nota 4,1 com 560 avaliações) e um texto curto sobre o bairro, com espaço sinalizado para o gerente contar a história real.
 3. O nome do sócio-administrador que aparece nas bases de CNPJ **não entra** na página nem neste spec. É dado de pessoa física, sem necessidade para a landing.
 4. Depoimentos de clientes **não são reproduzidos**. Citar avaliação do Google exige autorização do autor. A prova social usa só a nota agregada e os temas, com a fonte nomeada ("Nota no Google Maps").
 
 ## 3. Identidade visual
 
-Origem: a fachada documentada no Google Maps e Street View tem letreiro e entrada em **verde vivo**, letras "SUPERMERCADO HITAMAX" em maiúsculas largas com serifas, preenchimento pêssego e contorno vermelho escuro. **Não existe logotipo digital.** Toda cor e fonte abaixo é proposta de projeto, não marca oficial.
+Origem: duas leituras independentes das fotos públicas do Google Maps e Street View concordam que a **entrada e a fachada são verdes** e que o letreiro diz "SUPERMERCADO HITAMAX" em maiúsculas. **As leituras divergem sobre as cores do letreiro** (uma viu faixa verde com letras pêssego e contorno vermelho escuro; a outra viu fundo amarelo claro com letras verdes), e a foto mais recente é de nov/2020. Por isso só o verde é tratado como âncora da marca, e o Saker deve conferir a fachada no Street View antes de apresentar. **Logotipo digital não encontrado nas fontes consultadas** (o gerente pode ter o arquivo). Toda cor e fonte abaixo é proposta de projeto, não marca oficial.
 
 ### Paleta
 
@@ -99,19 +99,19 @@ Uma página, rolagem vertical, **mobile first** (a maioria do público do bairro
 |---|---|---|---|
 | 0 | Faixa de demonstração | "Versão demonstrativa, conteúdo ilustrativo sujeito a confirmação." Fina, no topo, removível com uma constante | n/a |
 | 1 | Cabeçalho fixo | wordmark, links âncora (Departamentos, Ofertas, Sobre, Onde estamos), botão "Como chegar" | n/a |
-| 2 | Hero | Título forte de bairro, subtítulo, dois botões (Como chegar, Ligar), indicador "Aberto agora" ou "Fecha às 20:00" calculado no navegador, imagem de cabeçalho | horário [a confirmar] |
-| 3 | Faixa de confiança | nota 4,1 no Google (560 avaliações), "Aberto desde 2009 (cadastro)", "Atendimento de bairro" | [confirmado] |
+| 2 | Hero | Título forte de bairro, subtítulo, dois botões (Como chegar, Ligar), indicador "Aberto agora" ou "Fecha às 20:00" calculado no navegador, com o complemento visível "horário a confirmar" enquanto a constante `HORARIO_CONFIRMADO` for `false`, imagem de cabeçalho | horário [a confirmar] |
+| 3 | Faixa de confiança | nota 4,1 no Google (560 avaliações), "CNPJ ativo desde 2009", "Atendimento de bairro" | [confirmado] |
 | 4 | Departamentos | Padaria, Açougue, Mercearia com foto e frase curta. Hortifruti aparece com selo "exemplo para validar" | padaria e açougue [a confirmar], mercearia [confirmado] |
 | 5 | Ofertas da semana | 4 cartões de oferta com preço grande, unidade e validade, **todos rotulados "exemplo"** e com nota "ofertas reais serão enviadas pelo mercado" | [ilustrativo] |
-| 6 | Por que o bairro escolhe | 3 argumentos curtos tirados dos temas reais (padaria, açougue, atendimento) sem citar avaliação literal | [confirmado] |
-| 7 | Formas de pagamento | linha de selos genéricos (cartões e vales) com aviso "a confirmar" no código, mas sem aviso visual poluindo | [a confirmar] |
+| 6 | Por que o bairro escolhe | 3 argumentos curtos: padaria, atendimento e limpeza, que são os elogios documentados. Açougue fica só na seção Departamentos, porque as menções não são classificadas como elogio. Sem citar avaliação literal | [confirmado] |
+| 7 | Formas de pagamento | **sem selos de bandeira na demo.** Uma linha de texto: "Formas de pagamento: a confirmar com a loja" | [a confirmar] |
 | 8 | Sobre a loja | bloco com os números verdadeiros e espaço para a história real do gerente | história [não encontrado] |
 | 9 | Onde estamos | endereço, mapa incorporado, botão "Abrir rota" (link de rota do Google Maps), horário em tabela, telefone | [a confirmar] |
 | 10 | Rodapé | wordmark, endereço, telefone, CNPJ e razão social, aviso de demonstração, crédito "Demonstração criada por Saker" | CNPJ [confirmado] |
 
 Comportamentos:
 
-- **Aberto agora**: JavaScript compara a hora no fuso `America/Sao_Paulo` com a tabela de horários, que fica em uma constante única no topo do script. Sem dependência externa. Se o JavaScript falhar, o texto estático do horário continua visível.
+- **Aberto agora**: JavaScript compara a hora no fuso `America/Sao_Paulo` com a tabela de horários, que fica em uma constante única no topo do script, ao lado de `HORARIO_CONFIRMADO` (começa `false`; vira `true` quando o gerente validar, e o complemento "horário a confirmar" some). Sem dependência externa. Se o JavaScript falhar, o texto estático do horário continua visível.
 - **Ligar**: link `tel:+551123255600`. Não existe botão de WhatsApp, porque não há número de WhatsApp confirmado. Ele entra quando o gerente informar.
 - **Como chegar**: link `https://www.google.com/maps/dir/?api=1&destination=` com o endereço codificado. Abre o app no celular.
 - **Mapa**: `<iframe>` do Google Maps por consulta de endereço, sem chave de API, com `loading="lazy"` e `title` descritivo.
@@ -121,11 +121,11 @@ Comportamentos:
 
 Tom: vizinho, direto, sem exagero de preço (a reclamação recorrente é preço; **não prometer "menor preço"**). Exemplos de título do hero para o Saker escolher:
 
-1. "O mercado do seu bairro, do pão quente ao fim do dia."
+1. "O mercado do seu bairro, da padaria ao fim do dia."
 2. "Pertinho de você, no Jardim Santo Alberto."
 3. "Tudo para a mesa do dia a dia, a poucos passos de casa."
 
-Recomendação: opção 1, porque junta padaria (tema forte nas avaliações) com a rotina do bairro, e não promete nada que o cadastro não sustente.
+Recomendação: opção 2, a mais segura: nomeia o bairro e não promete nada que o cadastro não sustente. A opção 1 serve se o gerente confirmar a rotina da padaria. "Pão quente" e "pão fresco" ficam de fora até haver essa confirmação, porque o cadastro descreve padaria de revenda.
 
 ## 6. Requisitos técnicos
 
@@ -147,15 +147,16 @@ Por quê: a demo vai para GitHub Pages, o gerente precisa abrir rápido, e um bu
 | Requisito | Meta |
 |---|---|
 | Lighthouse mobile (Performance, Acessibilidade, Boas práticas, SEO) | todas com 90 ou mais |
-| Peso total da página sem mapa | até 1,5 MB |
+| Peso da primeira dobra (HTML, CSS, JS, fontes e hero), transferido no celular | até 600 KB |
+| Peso total com todas as imagens, sem o mapa | até 1,5 MB, medido na aba Network. As cinco imagens atuais somam cerca de 1,9 MB, então T4 gera variantes de 800 px de largura (`srcset`) e comprime o hero |
 | Layout | sem rolagem horizontal de 320 px a 1920 px |
 | Acessibilidade | contraste AA, foco visível, `alt` em toda imagem de conteúdo, HTML semântico, ordem de tabulação lógica |
 | Movimento | respeita `prefers-reduced-motion` |
-| SEO local | `title`, `meta description`, Open Graph, dados estruturados JSON-LD `GroceryStore` com endereço, telefone e horário, `lang="pt-BR"` |
+| SEO local | `title`, `meta description`, Open Graph, dados estruturados JSON-LD `GroceryStore` (demo: só nome e endereço), `lang="pt-BR"` |
 | Segurança | sem formulário, sem cookie, sem script de terceiros além do iframe do mapa e das fontes |
 | Privacidade | sem analytics na demo |
 
-Observação: dado estruturado com horário e telefone **a confirmar** só deve ir ao ar na versão final. Na demo o JSON-LD é incluído, mas o item de validação da seção 9 exige que ele reflita exatamente a tabela da seção 2.
+Observação: o JSON-LD da demo leva só nome, endereço e CNPJ. **Telefone e horário ficam fora até o gerente confirmar**, para o buscador não indexar dado não validado. Entram na Fase 4.
 
 ## 7. Plano de execução
 
@@ -167,24 +168,27 @@ Regra de onda rolante: só a Fase 1 e a 2 estão em tarefas despacháveis; as se
 - [x] Pesquisar identidade visual: [research/identidade-visual.md](research/identidade-visual.md) (worker Codex)
 - [x] Gerar assets temporários: [assets/MANIFEST.md](assets/MANIFEST.md) (worker Codex)
 - [x] Redigir este SPEC (Claude)
-- [ ] Criar repositório no GitHub e publicar o SPEC (marcar quando o push for verificado)
+- [x] Criar o repositório público `rbrecci/hitamax-landing` e publicar o SPEC (push verificado pela API do GitHub)
+- [x] Revisão independente do SPEC por worker Codex (11 achados, aplicados nesta versão) e conferência independente dos fatos (7 confirmados, 1 divergente de leitura de imagem, 1 não verificável)
 
 ### Fase 2: construção da landing (próxima)
 
-Cada tarefa tem dono de arquivo distinto para permitir trabalho paralelo sem conflito.
+Ordem: T1 primeiro, porque define o contrato de IDs e atributos do HTML que T2 e T3 consomem. Depois T2, T3 e T4 em paralelo. T5 depois de T1 a T4. T6 por último, sequencial. Cada arquivo tem um dono só.
+
+Contrato do HTML (T1 entrega, T2 e T3 usam): `#status-aberto` (chip de aberto agora), `#tabela-horarios` (linhas com `data-dia` de 0 a 6 e `data-abre` e `data-fecha` em `HH:MM`), `#horario-aviso` (texto "horário a confirmar"), `#btn-ligar`, `#btn-rota`, `[data-reveal]` (elementos com entrada por rolagem).
 
 | Tarefa | Dono | Arquivos | Aceite observável |
 |---|---|---|---|
-| T1: esqueleto HTML semântico das 11 seções, meta tags, JSON-LD | Claude | `index.html` | HTML validado; todas as seções presentes, em ordem |
+| T1: esqueleto HTML semântico das 11 seções, meta tags, JSON-LD enxuto, contrato de IDs, links de `tel:` e de rota, `<link>` do favicon e `srcset` das imagens | Claude | `index.html` | HTML validado; todas as seções presentes, em ordem; todo ID do contrato existe |
 | T2: design system em CSS (tokens da seção 3, grid, componentes, responsivo) | Claude | `styles.css` | capturas a 360, 768 e 1280 px sem rolagem horizontal |
-| T3: script de "aberto agora", animação de rolagem, links de rota e telefone | Codex | `script.js` | testes com 6 horários de entrada (aberto, fechado, fronteira, domingo) devolvendo o texto esperado |
-| T4: otimização das imagens (WebP, tamanhos) e favicon SVG do wordmark | Codex | `assets/` | nenhum arquivo acima de 400 KB; favicon visível na aba |
-| T5: revisão independente do resultado contra este SPEC, só relatório | Codex | nenhum | lista de desvios com `arquivo:linha`, sem editar |
-| T6: auditoria Lighthouse e acessibilidade, correção dos achados | Claude | todos | metas da seção 6 atingidas, com relatório colado |
+| T3: script de "aberto agora" com `HORARIO_CONFIRMADO`, animação de rolagem | Codex | `script.js` | testes com 6 horários de entrada (aberto, fechado, fronteira, domingo, mudança de dia) devolvendo o texto esperado, saída colada |
+| T4: variantes WebP de 800 px, compressão do hero, favicon SVG do wordmark, regerar o hero com toldo verde se o Saker pedir | Codex | `assets/` | primeira dobra até 600 KB e página até 1,5 MB medidos; nenhum arquivo acima de 400 KB; favicon existe em `assets/` |
+| T5: revisão independente contra este SPEC, só relatório | Codex | nenhum | lista de desvios com `arquivo:linha`, sem editar |
+| T6: auditoria Lighthouse e acessibilidade, correção dos achados | Claude | todos | metas da seção 6 atingidas, relatório colado |
 
 ### Fase 3: publicação e apresentação (épico)
 
-Ligar GitHub Pages, validar a URL em celular real, gerar cartão de compartilhamento (Open Graph) e preparar um roteiro de 3 minutos para o Saker mostrar ao gerente, incluindo o que a demo ainda não tem e o que a próxima fase entregaria.
+**Ligar o GitHub Pages só depois de o Saker decidir.** O repositório já é público (necessário para o Pages gratuito) e só contém dado de fonte aberta, mas a página no ar leva o nome comercial da loja: se o Saker preferir ter o aval do gerente antes, a primeira apresentação é local (abrir `index.html` no celular ou servir pela rede da casa) e o Pages liga depois do aval. Validar a URL em celular real, gerar cartão de compartilhamento (Open Graph) e preparar um roteiro de 3 minutos para o Saker mostrar ao gerente, incluindo o que a demo ainda não tem e o que a próxima fase entregaria.
 
 ### Fase 4: versão real (épico, depende da aprovação do gerente)
 
@@ -203,13 +207,15 @@ Lições registradas da Fase 1 (para os próximos briefs):
 
 - `--worktree current` aponta para o **diretório da sessão do coordenador**, não para o repositório recém-registrado. Os workers nasceram na pasta `projects/`, e a correção foi enviada por mensagem de terminal antes de qualquer escrita. Na Fase 2, abrir a sessão dentro do repositório ou passar `--worktree` com o id do worktree do repo.
 - Brief com caminho relativo exige dizer o diretório base de forma absoluta.
+- A segunda leva (revisor e checador de fatos) usou `--worktree id:<repoId>::<caminho>` e nasceu no repositório certo, sem correção.
+- Dois workers lendo a mesma imagem pública descreveram cores diferentes de letreiro. Leitura de imagem por agente não é fato: o que importa para a marca precisa de conferência humana (o Saker olha o Street View).
 
 ## 9. Critérios de aceite da demo
 
 A demo só é declarada pronta quando cada item tiver evidência colada (comando e saída, ou captura):
 
 1. `index.html` abre pela URL do GitHub Pages e carrega CSS, JS e imagens sem erro 404 no console.
-2. Lighthouse mobile com 90 ou mais nas quatro categorias.
+2. Lighthouse mobile com 90 ou mais nas quatro categorias, e pesos da seção 6 medidos na aba Network.
 3. Capturas a 360, 768 e 1280 px sem rolagem horizontal e sem sobreposição.
 4. Contraste dos pares da seção 3 recalculado de forma independente da pesquisa.
 5. Teste do "aberto agora" nos 6 horários de borda.
@@ -226,7 +232,7 @@ A demo só é declarada pronta quando cada item tiver evidência colada (comando
 | Informação de diretório desatualizada (horário, telefone, razão social) | gerente vê dado errado e perde confiança na demo | tudo marcado "a confirmar" aqui; conferir por telefone ou visita antes da apresentação |
 | Imagens de IA passarem por fotos da loja | gerente estranha, ou leva como engano | rótulo de demonstração, nenhuma legenda que identifique a loja, pedido das fotos reais |
 | Avaliações de preço (principal tema negativo) ficarem expostas por promessa de economia | contradição pública | copy sem promessa de menor preço; ofertas só com dados aprovados |
-| Repositório público com nome de comércio real antes da aprovação do gerente | exposição sem consentimento | conteúdo só de fonte pública e sem dado pessoal; avisar o gerente na apresentação; se ele recusar, despublicar e apagar o repo |
+| Repositório público com nome de comércio real antes da aprovação do gerente | exposição sem consentimento | conteúdo só de fonte aberta, sem dado pessoal (nome de sócio e e-mail foram removidos da pesquisa); Pages só liga com decisão do Saker; se o gerente recusar, despublicar e apagar o repo |
 | GitHub Pages sob subcaminho quebrar caminhos absolutos | CSS e imagens não carregam | todos os caminhos relativos, verificado no aceite 1 |
 | Mapa incorporado depender de serviço de terceiro | bloco em branco | link "Abrir rota" funciona sem o iframe |
 
